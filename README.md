@@ -8,8 +8,6 @@ Using modern `libgpiod` v2.x and high-throughput asynchronous block I/O (`io_uri
 
 ## 🛠 System Architecture
 
-## 🛠 System Architecture
-
 ```text
 +-----------------------------------------------------------------------------------+
 | Raspberry Pi Compute Module 4 (CM4 IO Platform)                                   |
