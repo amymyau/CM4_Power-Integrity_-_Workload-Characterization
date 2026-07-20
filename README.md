@@ -37,7 +37,8 @@ Using modern `libgpiod` v2.x and high-throughput asynchronous block I/O (`io_uri
 
 High-queue-depth unbuffered block reads (`O_DIRECT`, 1MB transfers) were issued over the PCIe x1 bus to an NVMe SSD simultaneously with a 4-core ARM NEON SIMD load step.
 
-![3.3V PCIe Transient Noise Capture](DS1Z_QuickPrint13.jpg)
+
+![3.3V PCIe Transient Noise Capture](./DS1Z_QuickPrint13.jpg)
 
 
 
