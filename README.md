@@ -7,7 +7,7 @@ Using modern `libgpiod` v2.x and high-throughput asynchronous block I/O (`io_uri
 
 
 ## 🛠 System Architecture
-
+```text
 
 +-----------------------------------------------------------------------------------+
 | Raspberry Pi Compute Module 4 (CM4 IO Platform)                                   |
@@ -30,6 +30,7 @@ Using modern `libgpiod` v2.x and high-throughput asynchronous block I/O (`io_uri
                    | CH1 (Yellow): 3.3V PCIe Rail Noise (10mV/div)    |
                    | CH2 (Cyan):   GPIO 17 Software Trigger (500mV/div)|
                    +--------------------------------------------------+
+```
 
 
 
