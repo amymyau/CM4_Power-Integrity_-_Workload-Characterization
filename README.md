@@ -4,11 +4,11 @@ An embedded system-level validation framework built on the Raspberry Pi Compute 
 
 Using modern `libgpiod` v2.x and high-throughput asynchronous block I/O (`io_uring`), this harness generates deterministic, high $di/dt$ step-load bursts while toggling a hardware GPIO trigger for oscilloscope synchronization.
 
----
+
 
 ## 🛠 System Architecture
 
-```text
+
 +-----------------------------------------------------------------------------------+
 | Raspberry Pi Compute Module 4 (CM4 IO Platform)                                   |
 |                                                                                   |
@@ -37,8 +37,7 @@ Using modern `libgpiod` v2.x and high-throughput asynchronous block I/O (`io_uri
 
 High-queue-depth unbuffered block reads (`O_DIRECT`, 1MB transfers) were issued over the PCIe x1 bus to an NVMe SSD simultaneously with a 4-core ARM NEON SIMD load step.
 
-
-![3.3V PCIe Transient Noise Capture](./DS1Z_QuickPrint13.jpg)
+<img src="DS1Z_QuickPrint13.jpg" alt="3.3V PCIe Transient Noise Capture" width="100%"/>
 
 
 
@@ -60,7 +59,7 @@ High-queue-depth unbuffered block reads (`O_DIRECT`, 1MB transfers) were issued 
 * **Multi-Core SIMD Synchronization:** Coordinates 4 concurrent ARM NEON SIMD worker threads aligned via atomic spinlock barriers to hit peak compute current simultaneously.
 * **Physical-Layer Correlation:** Establishes direct visual correlation between low-level C++ software execution timing and power integrity performance on target hardware.
 
----
+
 
 ## 🚀 Getting Started
 
