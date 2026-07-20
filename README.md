@@ -8,14 +8,13 @@ Using modern `libgpiod` v2.x and high-throughput asynchronous block I/O (`io_uri
 
 ## 🛠 System Architecture
 
-+-----------------------------------------------------------------------------------+| Raspberry Pi Compute Module 4 (CM4 IO Platform)                                   ||                                                                                   ||  +--------------------------------+   libgpiod v2.x   +------------------------+  ||  | C++ Workload Generator         |------------------>| GPIO 17 (Sync Trigger) |  ||  | - liburing (O_DIRECT, QD=32)   |                   +------------------------+  ||  | - 4-Core ARM NEON SIMD Stress  |                               │               ||  +--------------------------------+                               │ Rising Edge   ||                  │                                                │ Trigger       ||                  ▼ PCIe Direct I/O Burst                          │               ||  +-------------------------------------------------------------+  │               ||  | 3.3V PCIe Power Rail (MLCC Decoupling near NVMe Slot)        |  │               ||  +-------------------------------------------------------------+  │               |+----------------------------------│--------------------------------│---------------+│                                │▼ AC-Coupled (20MHz BW Limit)    ▼+--------------------------------------------------+| Rigol Digital Oscilloscope                       || CH1 (Yellow): 3.3V PCIe Rail Noise (10mV/div)    || CH2 (Cyan):   GPIO 17 Software Trigger (500mV/div)|+--------------------------------------------------+
----
+
 
 ## 📊 Physical Bench Results & Transient Capture
 
 High-queue-depth unbuffered block reads (`O_DIRECT`, 1MB transfers) were issued over the PCIe x1 bus to an NVMe SSD simultaneously with a 4-core ARM NEON SIMD load step.
 
-![3.3V PCIe Transient Noise Capture](DS1Z_QuickPrint13.jpg)
+
 
 ### Key Metrics & Observations
 * **GPIO Trigger Pulse Width ($\text{CH2}$):** $135\text{ ms}$ software execution window.
